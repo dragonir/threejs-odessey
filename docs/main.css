@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: radial-gradient(at left top, rgb(192, 132, 252), rgb(209, 213, 219), rgb(165, 243, 252));
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.github {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  color: #0A0942;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
+}
+
+.github:hover {
+  opacity: .5;
+}
+
+.github .author {
+  padding-left: 8px;
+}
+
+video {
+  visibility: hidden;
+}
+
+.tips {
+  height: 48px;
+  width: 260px;
+  background: rgba(100, 100, 100, .3);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-left: -130px;
+  border-radius: 0 0 32px 32px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border: 1px groove rgba(50, 50, 50, .1);
+  border-top: none;
+  box-shadow: 0 1px 4px rgba(100, 100, 100, .15);
+  text-shadow: 0 1px 1px rgba(10, 10, 10, .1);
+}
+.tips svg {
+  margin-left: 16px;
+}
+.tips .text {
+  color: #FFFFFF;
+  font-size: 16px;
+  vertical-align: middle;
+  padding-left: 8px;
+}
+

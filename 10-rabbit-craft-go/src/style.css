@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: led;
+  src: url('../static/fonts/led.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #1FA2FF;
+  background: -webkit-linear-gradient(to top, #f7f303, #12D8FA, #1FA2FF);
+  background: linear-gradient(to top, #f7f303, #12D8FA, #1FA2FF);
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.github {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.github:hover {
+  opacity: .5;
+}
+
+.github .author {
+  padding-left: 8px;
+}
+
+h1.title {
+  width: 100%;
+  font-size: 5rem;
+  position: fixed;
+  left: 0;
+  top: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: led;
+  letter-spacing: 12px;
+  text-shadow: 0 1px 0 hsl(174,5%,80%),
+              0 2px 0 hsl(174,5%,75%),
+              0 3px 0 hsl(174,5%,70%),
+              0 4px 0 hsl(174,5%,66%),
+              0 5px 0 hsl(174,5%,64%),
+              0 6px 0 hsl(174,5%,62%),
+              0 7px 0 hsl(174,5%,61%),
+              0 8px 0 hsl(174,5%,60%),
+              0 0 5px rgba(0,0,0,.05),
+            0 1px 3px rgba(0,0,0,.2),
+            0 3px 5px rgba(0,0,0,.2),
+            0 5px 10px rgba(0,0,0,.2),
+          0 10px 10px rgba(0,0,0,.2),
+          0 20px 20px rgba(0,0,0,.3);
+}
+
+.mask {
+  position: fixed;
+  background: rgba(255, 255, 255, .4);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mask .box {
+  height: 360px;
+  width: 360px;
+  background: rgba(0, 0, 0, .4);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .6);
+  border: 1px groove rgba(255, 255, 255, .1);
+}
+.mask .box .keyboard {
+  margin-top: 16px;
+}
+.mask .box .keyboard .row {
+  margin: auto;
+  width: 288px;
+}
+.mask .box .keyboard .row:first-child {
+  width: 96px;
+}
+.mask .box .keyboard .row .key {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  box-sizing: border-box;
+  line-height: 80px;
+  text-align: center;
+  margin: 8px;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666666;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.mask .box .keyboard .row .key.space {
+  width: 272px;
+}
+.mask .box .tips {
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  margin: 8px auto;
+  opacity: .5;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+}
+.mask .box .tips b {
+  color: #03c03c;
+}
+.mask .box .start {
+  text-align: center;
+  margin-top: 64px;
+}
+.mask .box .start .button {
+  height: 48px;
+  width: 360px;
+  border-radius: 24px;
+  background: linear-gradient(to right, #03c03c, #90eb27);
+  outline: none;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all .25s ease-out;
+}
+.mask .box .start .button:hover {
+  filter: brightness(1.5) contrast(1.2);
+}
+
+.banner {
+  position: fixed;
+  height: 120px;
+  width: 200px;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, .3);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
+}
+.banner i {
+  display: inline-block;
+  height: 150px;
+  width: 200px;
+  background: url('../static/images/banner.png') no-repeat center;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, .1));
+}
+
+@media only screen and (max-width: 840px) {
+  h1.title {
+    font-size: 3rem;
+  }
+  .mask .box {
+    transform: scale(.6);
+  }
+  .banner {
+    transform: scale(.5);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  h1.title {
+    display: none;
+  }
+  .mask .box {
+    transform: scale(.4);
+  }
+  .banner {
+    display: none;
+  }
+}

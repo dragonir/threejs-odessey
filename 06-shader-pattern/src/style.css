@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.github {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
+}
+
+.github:hover {
+  opacity: .5;
+}
+
+.github .author {
+  padding-left: 8px;
+}

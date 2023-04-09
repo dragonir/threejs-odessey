@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.github {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  color: rgba(255, 255, 255, .6);
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  transition: all .25s ease-in-out;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.github:hover {
+  opacity: .5;
+}
+
+.github .author {
+  padding-left: 8px;
+}
+
+@font-face {
+  font-family: age;
+  src: url('../static/fonts/exc.ttf');
+}
+
+.title-zone {
+  position: fixed;
+  width: 100%;
+  bottom: 24px;
+  left: 0;
+  font-family: age;
+  display: none;
+}
+.title-zone .title {
+  font-size: .65rem;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  letter-spacing: 1em;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 1px #fffc00, 0px 2px 2px #fffc00, 0px 4px 8px #fffc00;
+
+}
+.title-zone .subtitle {
+  font-size: .45rem;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: .5em;
+}
+
+@media only screen and (max-width: 900px) {
+  .title-zone .title {
+    font-size: .4rem;
+  }
+  .title-zone .subtitle {
+    font-size: .3rem;
+  }
+}
+@media only screen and (max-height: 640px) {
+  .title-zone .title {
+    font-size: .4rem;
+  }
+  .title-zone .subtitle {
+    font-size: .3rem;
+  }
+}

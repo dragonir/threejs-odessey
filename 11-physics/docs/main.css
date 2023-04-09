@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow: hidden;
+    background: #a4f54c;
+    background-image: radial-gradient(at 73.0% 97.0%, hsl(319, 56%, 40%) 0px, transparent 50%), radial-gradient(at 90.0% 89.0%, hsl(261, 89%, 51%) 0px, transparent 50%), radial-gradient(at 52.0% 44.0%, hsl(211, 82%, 50%) 0px, transparent 50%), radial-gradient(at 4.0% 71.0%, hsl(315, 55%, 55%) 0px, transparent 50%), radial-gradient(at 37.0% 12.0%, hsl(23, 95%, 53%) 0px, transparent 50%)
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.github {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    transition: all .25s ease-in-out;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+.github:hover {
+    opacity: .5;
+}
+
+.github .author {
+    padding-left: 8px;
+}

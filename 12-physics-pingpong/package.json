@@ -1,0 +1,27 @@
+{
+  "name": "threejs-odessey",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "3.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite": "^4.0.4"
+  },
+  "dependencies": {
+    "@react-three/cannon": "^6.5.2",
+    "@react-three/drei": "^9.50.3",
+    "@react-three/fiber": "^8.9.2",
+    "lerp": "^1.0.3",
+    "lodash-es": "^4.17.21",
+    "r3f-perf": "^6.6.3",
+    "react": "18.2",
+    "react-dom": "18.2",
+    "three": "^0.148.0",
+    "zustand": "^3.6.8"
+  }
+}

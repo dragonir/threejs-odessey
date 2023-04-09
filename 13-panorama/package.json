@@ -1,0 +1,36 @@
+{
+  "name": "panorama",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "gsap": "^3.11.4",
+    "lil-gui": "^0.16.1",
+    "mitt": "^3.0.0",
+    "stats.js": "^0.17.0",
+    "stylus": "^0.58.1",
+    "three": "^0.150.1",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-vue": "^9.9.0",
+    "lodash": "^4.17.21",
+    "postcss-pxtorem": "^6.0.0",
+    "vconsole": "^3.15.0",
+    "vite": "^4.0.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-glsl": "^0.1.2",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
