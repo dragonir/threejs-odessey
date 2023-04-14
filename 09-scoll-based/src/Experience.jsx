@@ -17,28 +17,44 @@ function Images() {
   const data = useScroll()
   const group = useRef()
   useFrame(() => {
+    // 第一页
     group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3
     group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3
+    // 第二页
     group.current.children[2].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 3
     group.current.children[3].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2
     group.current.children[4].material.zoom = 1 + data.range(1.25 / 3, 1 / 3) / 1
     group.current.children[5].material.zoom = 1 + data.range(1.8 / 3, 1 / 3) / 3
-    group.current.children[5].material.grayscale = 1 - data.range(1.6 / 3, 1 / 3)
-    group.current.children[6].material.zoom = 1 + (1 - data.range(2 / 3, 1 / 3)) / 3
+    // 第三页
+    // group.current.children[6].material.zoom = 1 + (1 - data.range(2 / 3, 1 / 3)) / 3
+    group.current.children[6].material.zoom = 1 + data.range(2 / 3, 1 / 3) / 3
+    // 第四页
+    group.current.children[7].material.zoom = 1 + data.range(2 / 3, 1 / 3) / 3
+    group.current.children[8].material.zoom = 1 + data.range(2.2 / 3, 1 / 3) / 2
   })
   return (
     <group ref={group}>
-      <Image position={[-2, 0, 0]} scale={[8, height, 1]} url="/images/0.jpg" />
-      <Image position={[2, 0, 1]} scale={3} url="/images/1.jpg" />
-      <Image position={[-2.3, -height, 2]} scale={[1, 3, 1]} url="/images/2.jpg" />
-      <Image position={[-0.6, -height, 3]} scale={[1, 2, 1]} url="/images/3.jpg" />
-      <Image position={[0.75, -height, 3.5]} scale={1.5} url="/images/4.jpg" />
-      <Image position={[0, -height * 1.5, 2.5]} scale={[1.5, 3, 1]} url="/images/5.jpg" />
-      <Image position={[0, -height * 2 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/6.jpg" />
-      <Image position={[0, -height * 3 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/7.jpg" />
-      <Image position={[0, -height * 4 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/8.jpg" />
-      <Image position={[0, -height * 5 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/9.jpg" />
-      <Image position={[0, -height * 6 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/10.jpg" />
+      {/* 第一页 */}
+      <Image position={[0, 0, 0]} scale={[width, height, 1]} url="/images/0.jpg" />
+      <Image position={[0, 0, 1]} scale={3} url="/images/banner.png" transparent={true} />
+
+      {/* 第二页 */}
+      <Image position={[-2.5, -height + 1, 2]} scale={3} url="/images/1.jpg" />
+      <Image position={[0, -height, 3]} scale={2} url="/images/2.jpg" />
+      <Image position={[1.25, -height - 1, 3.5]} scale={1.5} url="/images/3.jpg" />
+      {/* 第三页 */}
+      <Image position={[0, -height * 1.5, 2.5]} scale={[6, 3, 1]} url="/images/4.jpg" />
+      {/* 第4页 */}
+      <Image position={[0, -height * 2 - height / 2, 0]} scale={[width, height, 1]} url="/images/5.jpg" />
+      {/* 第5页 */}
+      <Image position={[-3, -height * 3 - height / 2, 1]} scale={[width / 3, height / 2, 1]} url="/images/6.jpg" />
+      <Image position={[2, -height * 3 - height / 2, 2]} scale={[width / 4, height / 2.675, 1]} url="/images/7.jpg" />
+
+      <Image position={[0, -height * 5 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/8.jpg" />
+      <Image position={[0, -height * 6 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/9.jpg" />
+      <Image position={[0, -height * 7 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/10.jpg" />
+      <Image position={[0, -height * 8 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/11.jpg" />
+      <Image position={[0, -height * 9 - height / 4, 0]} scale={[width, height / 2, 1]} url="/images/12.jpg" />
     </group>
   )
 }
@@ -48,14 +64,15 @@ export default function Experience() {
     <>
       <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
       <Suspense fallback={null}>
-        <ScrollControls damping={.5} pages={7}>
+        <ScrollControls damping={.5} pages={10}>
           <Scroll>
             <Images />
           </Scroll>
           <Scroll html>
-            <h1 style={{ position: 'absolute', top: '60vh', left: '0.5em' }}>breath</h1>
-            <h1 style={{ position: 'absolute', top: '120vh', left: '60vw' }}>of</h1>
-            <h1 style={{ position: 'absolute', top: '198.5vh', left: '0.5vw', fontSize: '40vw' }}>wild</h1>
+            <h1 style={{ position: 'absolute', top: '110vh', left: '.5vw' }}>breath</h1>
+            <h1 style={{ position: 'absolute', top: '220vh', left: '60vw', color: '#fff' }}>of</h1>
+            <h1 style={{ position: 'absolute', top: '290vh', left: '.5vw', color: '#fff' }}>the</h1>
+            <h1 style={{ position: 'absolute', top: '420vh', left: '40vw', fontSize: '30vw' }}>wild</h1>
           </Scroll>
         </ScrollControls>
         <Preload />

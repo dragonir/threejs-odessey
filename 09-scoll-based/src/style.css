@@ -11,7 +11,7 @@ body,
 
 body {
   overscroll-behavior: none;
-  background: #efefef;
+  background: #ffffff;
   font-family: 'Inter var', sans-serif;
   cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iYmxhY2siLz48L3N2Zz4='),
     auto;
@@ -52,6 +52,28 @@ a {
 
 .github .author {
   padding-left: 8px;
+}
+
+*::-webkit-scrollbar {
+  width: 4px !important;
+  background: 0 0 !important;
+  cursor: pointer !important
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(3, 192, 60, .5) !important;
+  border-radius: 4px !important;
+  border-color: transparent !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  background-clip: padding-box !important
+}
+*::-webkit-scrollbar-thumb:active {
+  background-color: rgba(3, 192, 60, .5) !important
+}
+*::-webkit-scrollbar-thumb:active,body.platform-win32 ::-webkit-scrollbar-thumb:hover {
+  border-width: 1px !important;
+  background-color: rgba(3, 192, 60, .5) !important;
+  cursor: pointer !important
 }
 
 @media only screen and (max-width: 840px) {
