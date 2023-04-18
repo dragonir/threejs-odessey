@@ -15,7 +15,7 @@ body,
 
 body {
   overscroll-behavior: none;
-  background: #2d2d2d;
+  background: #2d2d2d url('./images/bg.jpg') repeat;
   cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iYmxhY2siLz48L3N2Zz4='),
     auto;
 }
@@ -79,14 +79,35 @@ body::after {
   animation: sheikah 8s linear infinite;
 }
 
-h1 {
-  font-size: 20em;
+.text {
+  font-size: 24em;
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 0.7em;
   margin: 0;
   padding: 0;
   color: #b0976d;
+  position: absolute;
+}
+
+.text:nth-of-type(1) {
+  top: 120vh;
+  left: .5vw;
+}
+.text:nth-of-type(2) {
+  top: 270vh;
+  left: 75vw;
+  color: #ffffff;
+}
+.text:nth-of-type(3) {
+  top: 380vh;
+  left: .5vw;
+}
+
+.text:nth-of-type(4) {
+  top: 530vh;
+  left: 70vw;
+  font-size: 28em;
 }
 
 .github {
@@ -117,7 +138,7 @@ h1 {
   cursor: pointer !important
 }
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(3, 192, 60, .5) !important;
+  background-color: #2e2624 !important;
   border-radius: 4px !important;
   border-color: transparent !important;
   border-style: solid !important;
@@ -125,11 +146,11 @@ h1 {
   background-clip: padding-box !important
 }
 *::-webkit-scrollbar-thumb:active {
-  background-color: rgba(3, 192, 60, .5) !important
+  background-color: #2e2624 !important
 }
 *::-webkit-scrollbar-thumb:active,body.platform-win32 ::-webkit-scrollbar-thumb:hover {
   border-width: 1px !important;
-  background-color: rgba(3, 192, 60, .5) !important;
+  background-color: #2e2624 !important;
   cursor: pointer !important
 }
 

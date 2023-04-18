@@ -1,60 +1,51 @@
 import * as THREE from 'three'
 import { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Preload, ScrollControls, Scroll, useScroll, Image as ImageImpl } from '@react-three/drei'
+import { Preload, useIntersect, ScrollControls, Scroll, Image as ImageImpl } from '@react-three/drei'
 
 function Image({ c = new THREE.Color(), ...props }) {
-  const ref = useRef()
+  const visible = useRef(false)
   const [hovered, hover] = useState(false)
-  useFrame(() => {
-    ref.current.material.color.lerp(c.set(hovered ? 'white' : '#ccc'), hovered ? 0.4 : 0.05)
+  const ref = useIntersect((isVisible) => (visible.current = isVisible))
+  useFrame((state, delta) => {
+    ref.current.material.color.lerp(c.set(hovered ? '#fff' : '#ccc'), hovered ? 0.4 : 0.05);
+    ref.current.material.zoom = THREE.MathUtils.damp(ref.current.material.zoom, visible.current ? 1 : 4, 4, delta)
   })
   return <ImageImpl ref={ref} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)} {...props} />
 }
 
 function Images() {
-  const { width, height } = useThree((state) => state.viewport)
-  const data = useScroll()
-  const group = useRef()
+  const { width, height } = useThree((state) => state.viewport);
+  const group = useRef();
   useFrame(() => {
-    // 第一页
-    group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3
-    group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3
-    // 第二页
-    group.current.children[2].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 3
-    group.current.children[3].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2
-    group.current.children[4].material.zoom = 1 + data.range(1.25 / 3, 1 / 3) / 1
-    group.current.children[5].material.zoom = 1 + data.range(1.8 / 3, 1 / 3) / 3
-    // 第三页
-    // group.current.children[6].material.zoom = 1 + (1 - data.range(2 / 3, 1 / 3)) / 3
-    group.current.children[6].material.zoom = 1 + data.range(2 / 3, 1 / 3) / 3
-    // 第四页
-    group.current.children[7].material.zoom = 1 + data.range(2 / 3, 1 / 3) / 3
-    group.current.children[8].material.zoom = 1 + data.range(2.2 / 3, 1 / 3) / 2
-  })
+    // 取消 zelda logo 缩放动画
+    group.current.children[1].material.zoom = 1;
+  });
   return (
     <group ref={group}>
-      {/* 第一页 */}
+      {/* 第1页 */}
       <Image position={[0, 0, 0]} scale={[width, height, 1]} url="/images/0.jpg" />
-      <Image position={[0, 0, 1]} scale={3} url="/images/banner.png" transparent={true} />
-
-      {/* 第二页 */}
+      <Image position={[0, 0, 1]} scale={3.2} url="/images/banner.png" transparent={true} />
+      {/* 第2页 */}
       <Image position={[-2.5, -height + 1, 2]} scale={3} url="/images/1.jpg" />
       <Image position={[0, -height, 3]} scale={2} url="/images/2.jpg" />
       <Image position={[1.25, -height - 1, 3.5]} scale={1.5} url="/images/3.jpg" />
-      {/* 第三页 */}
+      {/* 第3页 */}
       <Image position={[0, -height * 1.5, 2.5]} scale={[6, 3, 1]} url="/images/4.jpg" />
-      {/* 第4页 */}
+      {/* 第3页 */}
       <Image position={[0, -height * 2 - height / 4, 0]} scale={[width, height, 1]} url="/images/5.jpg" />
+      {/* 第4页 */}
+      <Image position={[-3, -height * 3 - height / 4, 2]} scale={[width / 2.6, height / 2.675, 1]} url="/images/6.jpg" />
+      <Image position={[3, -height * 3 - height / 4, 1]} scale={[width / 2.5, height / 2, 1]} url="/images/7.jpg" />
       {/* 第5页 */}
-      <Image position={[-3, -height * 3 - height / 4, 1]} scale={[width / 3, height / 2, 1]} url="/images/6.jpg" />
-      <Image position={[2, -height * 3 - height / 4, 2]} scale={[width / 4, height / 2.675, 1]} url="/images/7.jpg" />
-
-      <Image position={[0, -height * 4, 0]} scale={[width, height, 1]} url="/images/8.jpg" />
-      <Image position={[0, -height * 5, 0]} scale={[width, height , 1]} url="/images/9.jpg" />
-      <Image position={[0, -height * 6, 0]} scale={[width, height, 1]} url="/images/10.jpg" />
-      <Image position={[0, -height * 7, 0]} scale={[width, height, 1]} url="/images/11.jpg" />
-      <Image position={[0, -height * 8, 0]} scale={[width, height, 1]} url="/images/12.jpg" />
+      <Image position={[-5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="/images/8.jpg" />
+      <Image position={[0, -height * 4, 0]} scale={[width / 3, height / 1.5 , 1]} url="/images/9.jpg" />
+      <Image position={[5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="/images/10.jpg" />
+      {/* 第6页 */}
+      <Image position={[0, -height * 5, 0]} scale={[width, height, 1]} url="/images/11.jpg" />
+      {/* 第7页 */}
+      <Image position={[0, -height * 6, 1]} scale={[width, height, 1]} url="/images/12.jpg" />
+      <Image position={[-1.5, -height * 6, 3]} scale={2.5} url="/images/link.png" transparent={true} />
     </group>
   )
 }
@@ -64,15 +55,15 @@ export default function Experience() {
     <>
       <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
         <Suspense fallback={null}>
-          <ScrollControls damping={1} pages={9}>
+          <ScrollControls damping={1} pages={7}>
             <Scroll>
               <Images />
             </Scroll>
             <Scroll html>
-              <h1 style={{ position: 'absolute', top: '110vh', left: '.5vw' }}>王</h1>
-              <h1 style={{ position: 'absolute', top: '220vh', left: '60vw', color: '#fff' }}>国</h1>
-              <h1 style={{ position: 'absolute', top: '290vh', left: '.5vw', color: '#fff' }}>之</h1>
-              <h1 style={{ position: 'absolute', top: '420vh', left: '40vw', fontSize: '30vw' }}>泪</h1>
+              <h1 className='text'>王</h1>
+              <h1 className='text'>国</h1>
+              <h1 className='text'>之</h1>
+              <h1 className='text'>泪</h1>
             </Scroll>
           </ScrollControls>
           <Preload />
