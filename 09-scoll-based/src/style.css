@@ -80,7 +80,7 @@ body::after {
 }
 
 .text {
-  font-size: 24em;
+  font-size: 20vw;
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 0.7em;
@@ -107,7 +107,7 @@ body::after {
 .text:nth-of-type(4) {
   top: 530vh;
   left: 70vw;
-  font-size: 28em;
+  font-size: 24vw;
 }
 
 .github {
