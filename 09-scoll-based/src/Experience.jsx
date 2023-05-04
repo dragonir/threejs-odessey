@@ -24,28 +24,28 @@ function Images() {
   return (
     <group ref={group}>
       {/* 第1页 */}
-      <Image position={[0, 0, 0]} scale={[width, height, 1]} url="/images/0.jpg" />
-      <Image position={[0, 0, 1]} scale={3.2} url="/images/banner.png" transparent={true} />
+      <Image position={[0, 0, 0]} scale={[width, height, 1]} url="./images/0.jpg" />
+      <Image position={[0, 0, 1]} scale={3.2} url="./images/banner.png" transparent={true} />
       {/* 第2页 */}
-      <Image position={[-2.5, -height + 1, 2]} scale={3} url="/images/1.jpg" />
-      <Image position={[0, -height, 3]} scale={2} url="/images/2.jpg" />
-      <Image position={[1.25, -height - 1, 3.5]} scale={1.5} url="/images/3.jpg" />
+      <Image position={[-2.5, -height + 1, 2]} scale={3} url="./images/1.jpg" />
+      <Image position={[0, -height, 3]} scale={2} url="./images/2.jpg" />
+      <Image position={[1.25, -height - 1, 3.5]} scale={1.5} url="./images/3.jpg" />
       {/* 第3页 */}
-      <Image position={[0, -height * 1.5, 2.5]} scale={[6, 3, 1]} url="/images/4.jpg" />
+      <Image position={[0, -height * 1.5, 2.5]} scale={[6, 3, 1]} url="./images/4.jpg" />
       {/* 第3页 */}
-      <Image position={[0, -height * 2 - height / 4, 0]} scale={[width, height, 1]} url="/images/5.jpg" />
+      <Image position={[0, -height * 2 - height / 4, 0]} scale={[width, height, 1]} url="./images/5.jpg" />
       {/* 第4页 */}
-      <Image position={[-3, -height * 3 - height / 4, 2]} scale={[width / 2.6, height / 2.675, 1]} url="/images/6.jpg" />
-      <Image position={[3, -height * 3 - height / 4, 1]} scale={[width / 2.5, height / 2, 1]} url="/images/7.jpg" />
+      <Image position={[-3, -height * 3 - height / 4, 2]} scale={[width / 2.6, height / 2.675, 1]} url="./images/6.jpg" />
+      <Image position={[3, -height * 3 - height / 4, 1]} scale={[width / 2.5, height / 2, 1]} url="./images/7.jpg" />
       {/* 第5页 */}
-      <Image position={[-5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="/images/8.jpg" />
-      <Image position={[0, -height * 4, 0]} scale={[width / 3, height / 1.5 , 1]} url="/images/9.jpg" />
-      <Image position={[5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="/images/10.jpg" />
+      <Image position={[-5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="./images/8.jpg" />
+      <Image position={[0, -height * 4, 0]} scale={[width / 3, height / 1.5 , 1]} url="./images/9.jpg" />
+      <Image position={[5, -height * 4, 0]} scale={[width / 3, height / 1.5, 1]} url="./images/10.jpg" />
       {/* 第6页 */}
-      <Image position={[0, -height * 5, 0]} scale={[width, height, 1]} url="/images/11.jpg" />
+      <Image position={[0, -height * 5, 0]} scale={[width, height, 1]} url="./images/11.jpg" />
       {/* 第7页 */}
-      <Image position={[0, -height * 6, 1]} scale={[width, height, 1]} url="/images/12.jpg" />
-      <Image position={[-1.5, -height * 6, 3]} scale={2.5} url="/images/link.png" transparent={true} />
+      <Image position={[0, -height * 6, 1]} scale={[width, height, 1]} url="./images/12.jpg" />
+      <Image position={[-1.5, -height * 6, 3]} scale={2.5} url="./images/link.png" transparent={true} />
     </group>
   )
 }
