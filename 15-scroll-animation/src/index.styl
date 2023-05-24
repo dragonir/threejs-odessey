@@ -5,23 +5,28 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-* {
+*
   box-sizing: border-box;
-}
 
 body {
   overscroll-behavior: none;
   background: #000000;
-  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iYmxhY2siLz48L3N2Zz4='),
+  cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAApVBMVEUAAAAHBwCZlwB5eRI8OwEICAyBgBCBgBF3diFlZRFeXRN3djBDQgF3d1swMBMJCQAFBQCgoKkJCROkpLCDg48AAAAAAAHt7fcFBRGmpQCOjACPjgB4eBNxcSRxcCZKSQB3d1E4NxF3d1Q1NREAAAP//wD+/ACtrADs6QC3tgCppwH9+wDx8ADv7gDo5wDn5ADl4gDAvgCzsQCysQCjoQCUkgCLiQCZWUr/AAAAJXRSTlMAdv7qvk7t69jV0M7GnJqBbE5GRENBNwYE/fz66NTSy6ako6A8ADMVmgAAAKFJREFUGNNt0NcSgjAURdGLgAgCShV7PQTs/f8/zQiCBFgvmdmTcieUc21jJhu2S3+hMj7HABKmBEUbTlHqSL/GgBhctqRZDScQvH0eFYgO/RF5++JscQNzyLqiJtnQIkZdj2Q0arc9ztuOW5fGQyvyWH2ku0NkQhTz4WnXEePLJ05Kqx9yG1BGqux98pYLzMcJ3DFdqlSK1K2uafpajejrA2xxK5f7WA4jAAAAAElFTkSuQmCC'),
     auto;
+}
+
+@font-face {
+  font-family: comic;
+  src: url('./fonts/tes.woff2');
 }
 
 .github {
   position: fixed;
-  left: 0;
-  bottom: 24px;
+  left: 50%;
+  bottom: 0;
   z-index: 11;
   color: #ffffff;
   display: flex;
@@ -29,7 +34,7 @@ body {
   padding: 16px;
   transition: all .25s ease-in-out;
   text-decoration: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+  transform translateX(-50%)
 }
 
 .github:hover {
@@ -65,7 +70,6 @@ body {
 .header
   height 64px
   width 100%
-  // background rgb(177, 243, 22)
   position fixed
   top 0
   left 0
@@ -74,6 +78,7 @@ body {
   display flex
   justify-content space-between
   align-items center
+  background linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
   .logo
     display inline-block
     height 40px
@@ -82,12 +87,48 @@ body {
     background-size contain
     margin-left 48px
     filter invert()
+  .menus
+    padding-right 48px
+    .menu
+      color rgba(255, 255, 255, 1)
+      font-size 1.35vw
+      font-weight 600
+      padding-left 2.8vw
+      cursor pointer
+      transition color .25s ease-out
+      &:hover
+        color #0ded59
+      &::before
+        content ''
+        display inline-block
+        height 1vw
+        width 1vw
+        background #0ded59
+        border-radius 50%
+        position relative
+        left -1vw
 
+.scroll
+  display inline-block
+  width 160px
+  height 21.5px
+  background url('./images/scroll.png') no-repeat center
+  background-size contain
+  position fixed
+  left 50%
+  top 38%
+  margin-left -80px
+  filter drop-shadow(1px 1px 8px rgba(200, 200, 200, .2))
+  -webkit-animation scrollAnimation 3s ease-in-out infinite
+  animation scrollAnimation 3s ease-in-out infinite
+  -webkit-animation-fill-mode noth
+  animation-fill-mode both
 .articles
   transform none !important
 .page
   height 100vh
   width 100vw
+  background rgba(0, 0, 0, .1)
   &.page1
     .content
       height calc(100vh - 64px)
@@ -103,9 +144,192 @@ body {
         height 50%
         width 100%
         background rgba(255, 255, 255, 1)
-        border-radius 20vw
+        border-radius calc(50vh - 32px)
+        display flex
+        justify-content space-between
+        box-sizing border-box
+        overflow hidden
+        .text
+          width calc(100vw - 50vh - 32px)
+          padding-left calc(25vh - 32px)
+          display flex
+          flex-direction column
+          font-weight 600
+          &::before
+            display inline-block
+            content: "dancing\a duck";
+            white-space: pre;
+            font-size 12vh
+            margin 1vh 0 2vh
+          &::after
+            display block
+            content '模型来源：https://sketchfab.com/3d-models/shuba-duck-54a6276ce06c4cc88fd497c8f1b8eb66'
+            font-size 1.6vh
+            white-space wrap
+            word-break break-all
+            width 16vw
+            color rgba(0, 0, 0, .4)
+        .cycle
+          height 100%
+          width calc(50vh - 32px)
+          background #0ded59
+          border-radius calc(50vh - 32px)
+          position relative
+          &::before
+            display inline-block
+            content ''
+            border-radius 50%
+            border 8px solid rgba(0, 0, 0, 1)
+            height 70%
+            width 70%
+            position absolute
+            top 50%
+            left 50%
+            margin-top -35%
+            margin-left -35%
+            box-sizing border-box
+            -webkit-animation rotateY 3s infinite linear
+            animation rotateY 3s infinite linear
+            -webkit-animation-fill-mode noth
+            animation-fill-mode both
+          &::after
+            display inline-block
+            content ''
+            height 50%
+            width 50%
+            background url('./images/duck.png') no-repeat center
+            background-size contain
+            position absolute
+            top 50%
+            left 50%
+            margin-top -25%
+            margin-left -25%
+            -webkit-animation rotateY 2s .1s infinite linear
+            animation rotateY 2s .1s infinite linear
+            -webkit-animation-fill-mode noth
+            animation-fill-mode both
       .bottom
         height 50%
         width 100%
         background #0ded59
-        border-radius 20vw
+        border-radius calc(50vh - 32px)
+        overflow hidden
+        display flex
+        align-items center
+        &::before
+          font-family comic
+          display inline-block
+          content 'SHUBA DUCK SHUBA DUCK'
+          font-size 32vh
+          color rgba(255, 255, 255, 1)
+          font-weight 600
+          transform rotate(-5deg)
+          white-space nowrap
+  &.page2
+    position relative
+    overflow hidden
+    box-sizing border-box
+    border 4px solid rgba(255, 255, 255, 1)
+    box-shadow 2px 2px 2px rgba(255, 255, 255, .2)
+    border-radius calc((50vh - 32px) / 2)
+    .line
+      width 100%
+      height 30vh
+      background rgba(12, 235, 87, .3)
+      position absolute
+      top 50%
+      margin-top -15vh
+      -webkit-animation lineAnimation 2s ease-in-out infinite
+      animation lineAnimation 2s ease-in-out infinite
+      -webkit-animation-fill-mode noth
+      animation-fill-mode both
+      &:nth-of-type(1)
+        transform rotate(60deg)
+      &:nth-of-type(2)
+        transform  rotate(-60deg)
+  &.page3
+    position relative
+    overflow hidden
+    box-sizing border-box
+    border 4px solid rgba(255, 255, 255, 1)
+    box-shadow 2px 2px 2px rgba(255, 255, 255, .2)
+    border-radius calc((50vh - 32px) / 2)
+    &::before
+      display block
+      width 100%
+      height 20vh
+      background #0ded59
+      content '* three.js odessey @dragonir *'
+      position absolute
+      top 50%
+      margin-top -10vh
+      font-size 14vh
+      line-height 20vh
+      white-space nowrap
+      font-weight 600
+    &::after
+      display inline-block
+      content 'WEB DESIGN BY MIKI'
+      color rgba(255, 255, 255, 1)
+      position absolute
+      top calc(50% + 10vh)
+      right 0
+      font-size 4vh
+      padding 2vh
+      border 4px solid rgba(255, 255, 255, 1)
+      border-top none
+      border-right none
+  &.page4
+    background url('./images/man.png') no-repeat bottom center
+    background-size contain
+  &.page5
+    display flex
+    justify-content space-around
+    align-items center
+    &::after
+      display inline-block
+      content 'Bye.'
+      font-size 24vw
+      color rgba(2555, 255, 255, 1)
+
+@-webkit-keyframes scrollAnimation
+  0%
+    transform translateY(0)
+  50%
+    transform translateY(10px)
+  100%
+    transform  translateY(0)
+@keyframes scrollAnimation
+  0%
+    transform translateY(0)
+  50%
+    transform translateY(10px)
+  100%
+    transform  translateY(0)
+
+@-webkit-keyframes lineAnimation
+  0%
+    opacity 1
+  50%
+    opacity .2
+  100%
+    opacity 1
+@keyframes lineAnimation
+  0%
+    opacity 1
+  50%
+    opacity .2
+  100%
+    opacity 1
+
+@-webkit-keyframes rotateY
+  from
+    transform: perspective(400px) rotateY(0deg)
+  to
+    transform: perspective(400px) rotateY(360deg)
+
+@keyframes rotateY
+  from
+    transform: perspective(400px) rotateY(0deg)
+  to
+    transform: perspective(400px) rotateY(360deg)
