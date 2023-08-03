@@ -1,0 +1,36 @@
+# Blender MTL File: 'earth-full.blend'
+# Material Count: 3
+
+newmtl Atmosphere
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.119574 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.700000
+illum 1
+
+newmtl Clouds
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 1
+map_Kd ./Clouds.png
+map_d ./Clouds.png
+
+newmtl EarthDay
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd ./ColorMap.jpg
+map_Bump ./BumpMap.jpg
